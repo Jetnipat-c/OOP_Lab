@@ -33,14 +33,20 @@ ArrayList<Student> arrList = new ArrayList<Student>();
         System.out.println(">>" + arrList.toString() + "\n" );
     }
 
-    public void searchStudentByCode(String _code){
+    public boolean searchStudentByCode(String _code){
+        boolean x = true;
         for (Student num : arrList) { 		      
             if (num.code == _code){
-             System.out.println(">> Student code : " + num + "\n" );
+             System.out.println(">> Student code : " + num  );
+             x = true;
              break;
             }
+            else {
+                x = false;
+            };
             
        }
+       return x;
     }
 
     public void getNumberOfStudent() {

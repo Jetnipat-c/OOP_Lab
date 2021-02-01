@@ -13,7 +13,7 @@ public class Main {
         System.out.println("########## showAllStudentInfo ##########");
         people.showAllStudentInfo();
         System.out.println("########## searchStudentByCode ##########");
-        people.searchStudentByCode("999");
+        System.out.println(">> Result search : "+ " " + people.searchStudentByCode("999")+ "\n"); 
         System.out.println("########## getNumberOfStudent ##########");
         people.getNumberOfStudent();
     }  
