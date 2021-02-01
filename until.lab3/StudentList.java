@@ -7,9 +7,9 @@ ArrayList<Student> arrList = new ArrayList<Student>();
 
 
     
-    public void addStudent(String _name, String _code, double _gpa) {
+    public void addStudent(String _code, String _name, double _gpa) {
         
-        arrList.add(new Student(_name,_code,_gpa) );
+        arrList.add(new Student(_code,_name,_gpa) );
         //System.out.println(arrList.toString());
     }
 
@@ -21,16 +21,30 @@ ArrayList<Student> arrList = new ArrayList<Student>();
             //System.out.println("find"); 
             //System.out.println(arrList.remove(num));
             arrList.remove(num);
-            System.out.println(">> Remove student code : " + num.code + " " + "done" );
+            System.out.println(">> Remove student code : " + num.code + " " + "done" + "\n");
             break;
            }
-           else System.out.println("Not find"); 	
+           else System.out.println(">> Not find"); 	
       }
-      System.out.println(">> After remove "+arrList.toString());
+    //   System.out.println(">> After remove "+arrList.toString() + "\n");
     }
 
     public void showAllStudentInfo() {
-        System.out.println(arrList.toString());
+        System.out.println(">>" + arrList.toString() + "\n" );
+    }
+
+    public void searchStudentByCode(String _code){
+        for (Student num : arrList) { 		      
+            if (num.code == _code){
+             System.out.println(">> Student code : " + num + "\n" );
+             break;
+            }
+            
+       }
+    }
+
+    public void getNumberOfStudent() {
+        System.out.println(">> All Student : " + arrList.size() + " " + "people" );
     }
 
 }

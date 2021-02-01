@@ -8,8 +8,14 @@ public class Main {
         people.addStudent("999","Chachaya",3.00);
         System.out.println("########## showAllStudentInfo ##########");
         people.showAllStudentInfo();
-        System.out.println("\n" +"########## removeStudentByCode ##########");
+        System.out.println("########## removeStudentByCode ##########");
         people.removeStudentByCode("021");
+        System.out.println("########## showAllStudentInfo ##########");
+        people.showAllStudentInfo();
+        System.out.println("########## searchStudentByCode ##########");
+        people.searchStudentByCode("999");
+        System.out.println("########## getNumberOfStudent ##########");
+        people.getNumberOfStudent();
     }  
 
 
