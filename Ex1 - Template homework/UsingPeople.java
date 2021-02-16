@@ -1,8 +1,8 @@
 /**
- * This is a class to test your code files
- *
- * @author Kullawat Chaowanawatee <kullawat.c@phuket.psu.ac.th>
- * @date 2021-0203T08:32+07
+ * This is a class that holds student info.
+ * 
+ * @author Jetnipat Thankeatphangan <6035512021@psu.ac.th>
+ * @date 2021-02-03T09:10+07
  */
 
 public class UsingPeople {
