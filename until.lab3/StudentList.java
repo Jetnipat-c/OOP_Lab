@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class StudentList {
     ArrayList<Student> arrList = new ArrayList<Student>(); 
     public StudentList() {  }
+    
     public void addStudent(String _code, String _name, double _gpa) {
         arrList.add(new Student(_code,_name,_gpa) );
     }

@@ -2,6 +2,7 @@ public class Book {
     private String title;
     private int numberOfPage;
     private String authorName;
+
     public Book() {
 
     }
@@ -47,31 +48,31 @@ public class Book {
 
     @Override
     public boolean equals(Object anotherObject) {
-        if (this == anotherObject ) return true;
-        if (anotherObject == null || getClass() != anotherObject.getClass()) return false;
+        if (this == anotherObject)
+            return true;
+        if (anotherObject == null || getClass() != anotherObject.getClass())
+            return false;
         Book book = (Book) anotherObject;
-        if(numberOfPage != book.numberOfPage) return false;
-        if(authorName != book.authorName) return false;
+        if (numberOfPage != book.numberOfPage)
+            return false;
+        if (authorName != book.authorName)
+            return false;
         return title.equals(book.title);
     }
 
     @Override
-     public int hashCode() {
+    public int hashCode() {
         final int prime = 31;
         int result = title.hashCode();
         int result2 = authorName.hashCode();
         result = prime * result + numberOfPage + result2;
         return result;
-     }
-
+    }
 
     @Override
     public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
-                ", numberofPage=" + numberOfPage + '\'' +
-                ", authorName='" + authorName + 
-                '}';
+        return "Book{" + "title='" + title + '\'' + ", numberofPage=" + numberOfPage + '\'' + ", authorName='"
+                + authorName + '}';
     }
-    
+
 }
