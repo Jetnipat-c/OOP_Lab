@@ -8,7 +8,7 @@ class TemperatureConverter extends JFrame {
     public double celsius, fahrenheit;
 
     public TemperatureConverter() {
-        super("Swing Counter");
+        super("Swing TemperatureConverter");
 
         JTextField txtCelsius = new JTextField("");
         JTextField txtFahrenheit = new JTextField("");
