@@ -3,6 +3,9 @@ import java.awt.*;
 import java.awt.event.*;
 
 class SwingCalculator extends JFrame implements ActionListener {
+    JTextField res = new JTextField("");
+    JButton btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btnPlus, btnMinus, btnDivide, btnMultiply,
+            btnClear, btnEquals;
 
     public SwingCalculator() {
         super("SwingCalculator");
@@ -12,30 +15,29 @@ class SwingCalculator extends JFrame implements ActionListener {
         p.setLayout(new GridLayout(4, 4));
         GridBagConstraints gbc = new GridBagConstraints();
 
-        JTextField res = new JTextField("0");
         res.setEditable(false);
         res.setHorizontalAlignment(SwingConstants.RIGHT);
         res.setPreferredSize(new Dimension(400, 30));
         add(res, BorderLayout.NORTH);
         add(p, BorderLayout.CENTER);
 
-        JButton btn0 = new JButton("0");
-        JButton btn1 = new JButton("1");
-        JButton btn2 = new JButton("2");
-        JButton btn3 = new JButton("3");
-        JButton btn4 = new JButton("4");
-        JButton btn5 = new JButton("5");
-        JButton btn6 = new JButton("6");
-        JButton btn7 = new JButton("7");
-        JButton btn8 = new JButton("8");
-        JButton btn9 = new JButton("9");
+        btn0 = new JButton("0");
+        btn1 = new JButton("1");
+        btn2 = new JButton("2");
+        btn3 = new JButton("3");
+        btn4 = new JButton("4");
+        btn5 = new JButton("5");
+        btn6 = new JButton("6");
+        btn7 = new JButton("7");
+        btn8 = new JButton("8");
+        btn9 = new JButton("9");
 
-        JButton btnPlus = new JButton("+");
-        JButton btnMinus = new JButton("-");
-        JButton btnDivide = new JButton("/");
-        JButton btnMultiply = new JButton("x");
-        JButton btnClear = new JButton("C");
-        JButton btnEquals = new JButton("=");
+        btnPlus = new JButton("+");
+        btnMinus = new JButton("-");
+        btnDivide = new JButton("/");
+        btnMultiply = new JButton("*");
+        btnClear = new JButton("C");
+        btnEquals = new JButton("=");
 
         btn1.addActionListener(this);
         btn2.addActionListener(this);
@@ -131,8 +133,47 @@ class SwingCalculator extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent ae) {
-        JButton pb = (JButton) ae.getSource();
+        String command = ae.getActionCommand();
+        if (command.charAt(0) == 'C') {
+            res.setText("");
+        } else if (command.charAt(0) == '=') {
+            res.setText(evaluate(res.getText()));
+            System.out.println(evaluate(res.getText()));
+        } else {
+            res.setText(res.getText() + command);
+        }
+    }
 
+    public static String evaluate(String expression) {
+        char[] arr = expression.toCharArray();
+        String operand1 = "";
+        String operand2 = "";
+        String operator = "";
+        double result = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] >= '0' && arr[i] <= '9' || arr[i] == '.') {
+                if (operator.isEmpty()) {
+                    operand1 += arr[i];
+                } else {
+                    operand2 += arr[i];
+                }
+            }
+
+            if (arr[i] == '+' || arr[i] == '-' || arr[i] == '/' || arr[i] == '*') {
+                operator += arr[i];
+            }
+        }
+
+        if (operator.equals("+"))
+            result = (Double.parseDouble(operand1) + Double.parseDouble(operand2));
+        else if (operator.equals("-"))
+            result = (Double.parseDouble(operand1) - Double.parseDouble(operand2));
+        else if (operator.equals("/"))
+            result = (Double.parseDouble(operand1) / Double.parseDouble(operand2));
+        else
+            result = (Double.parseDouble(operand1) * Double.parseDouble(operand2));
+        return operand1 + operator + operand2 + "=" + result;
     }
 
     public static void main(String[] args) {
