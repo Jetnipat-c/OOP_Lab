@@ -9,25 +9,24 @@ public class GuiComponents extends JFrame {
 
         Container c = getContentPane();
         setLayout(new BorderLayout());
-        
         c.setLayout(new FlowLayout(FlowLayout.LEFT));
         JButton btn = new JButton("Button");
-        c.add(btn);
+        c.add(btn, BorderLayout.NORTH);
 
         JCheckBox ck1 = new JCheckBox("Label");
-        c.add(ck1);
+        c.add(ck1, BorderLayout.NORTH);
 
         JButton lb = new JButton();
         lb.setBackground(Color.RED);
         lb.setPreferredSize(new Dimension(10, 10));
-        c.add(lb);
+        c.add(lb, BorderLayout.NORTH);
 
         JTextField txt = new JTextField("Text Field");
-        c.add(txt);
+        c.add(txt, BorderLayout.NORTH);
 
         JTextArea txtarea = new JTextArea("Text Area");
         txtarea.setPreferredSize(new Dimension(130, 100));
-        c.add(txtarea);
+        c.add(txtarea, BorderLayout.NORTH);
 
         Container c2 = getContentPane();
         c2.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -50,12 +49,12 @@ public class GuiComponents extends JFrame {
         JScrollPane listScroll = new JScrollPane(list);
         listScroll.setLocation(10, 10);
         listScroll.setSize(120, 180);
-        c2.add(listScroll);
+        c2.add(listScroll, BorderLayout.CENTER);
 
         String[] petStrings = { "Yes", "No" };
         JComboBox petList = new JComboBox(petStrings);
         petList.setSelectedIndex(0);
-        c2.add(petList);
+        c2.add(petList, BorderLayout.CENTER);
 
         JRadioButton jRadioButton1 = new JRadioButton();
         JRadioButton jRadioButton2 = new JRadioButton();
@@ -70,9 +69,9 @@ public class GuiComponents extends JFrame {
         jRadioButton2.setBounds(250, 30, 80, 50);
         jRadioButton3.setBounds(120, 30, 120, 50);
 
-        c2.add(jRadioButton1);
-        c2.add(jRadioButton2);
-        c2.add(jRadioButton3);
+        c2.add(jRadioButton1, BorderLayout.CENTER);
+        c2.add(jRadioButton2, BorderLayout.CENTER);
+        c2.add(jRadioButton3, BorderLayout.CENTER);
 
         group.add(jRadioButton1);
         group.add(jRadioButton2);
