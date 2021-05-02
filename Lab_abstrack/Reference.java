@@ -1,4 +1,4 @@
-public class Reference extends LibaryBook{
+public class Reference extends LibraryBook{
     public String title_ref;
     public String contents;
 

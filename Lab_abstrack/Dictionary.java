@@ -1,4 +1,4 @@
-public class Dictionary extends LibaryBook{
+public class Dictionary extends LibraryBook{
     public String title_lg1;
     public String title_lg2;
     public String publisher;

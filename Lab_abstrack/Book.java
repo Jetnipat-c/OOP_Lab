@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Book extends LibaryBook{
+public class Book extends LibraryBook{
     public String title;
     public String[] another;
     public int num_isbn;
@@ -22,8 +22,6 @@ public class Book extends LibaryBook{
     public boolean setAvailable(boolean available) {
         return false;
     }
-
-
 
     @Override
     public String toString(){

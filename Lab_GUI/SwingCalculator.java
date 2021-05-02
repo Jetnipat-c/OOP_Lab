@@ -5,14 +5,15 @@ import java.awt.event.*;
 class SwingCalculator extends JFrame implements ActionListener {
     JTextField res = new JTextField("");
     JButton btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btnPlus, btnMinus, btnDivide, btnMultiply,
-            btnClear, btnEquals;
+            btnClear, btnEquals, btnSin, btnCos, btnTan, btnLog, btnLn, btnPow2, btnPowy, btnEpowx, btnNatural, btnSqrt,
+            btnDel, btnDot, btnPie, btnE;
 
     public SwingCalculator() {
-        super("SwingCalculator");
+        super("Swing Calculator");
 
         setLayout(new BorderLayout());
         JPanel p = new JPanel();
-        p.setLayout(new GridLayout(4, 4));
+        p.setLayout(new GridLayout(6, 5));
         GridBagConstraints gbc = new GridBagConstraints();
 
         res.setEditable(false);
@@ -39,6 +40,21 @@ class SwingCalculator extends JFrame implements ActionListener {
         btnClear = new JButton("C");
         btnEquals = new JButton("=");
 
+        btnSin = new JButton("sin");
+        btnCos = new JButton("cos");
+        btnTan = new JButton("tan");
+        btnLog = new JButton("log");
+        btnLn = new JButton("ln");
+        btnPow2 = new JButton("x^2");
+        btnPowy = new JButton("x^y");
+        btnEpowx = new JButton("e^x");
+        btnNatural = new JButton("1/X");
+        btnSqrt = new JButton("sqrt");
+        btnDel = new JButton("Del");
+        btnDot = new JButton(".");
+        btnPie = new JButton("TT");
+        btnE = new JButton("e");
+
         btn1.addActionListener(this);
         btn2.addActionListener(this);
         btn3.addActionListener(this);
@@ -57,76 +73,148 @@ class SwingCalculator extends JFrame implements ActionListener {
         btnClear.addActionListener(this);
         btnEquals.addActionListener(this);
 
+        // btnSin = addActionListener(this);
+        // btnCos = addActionListener(this);
+        // btnTan = addActionListener(this);
+        // btnLog = addActionListener(this);
+        // btnLn = addActionListener(this);
+        // btnPow2 = addActionListener(this);
+        // btnPowy = addActionListener(this);
+        // btnEpowx = addActionListener(this);
+        // btnNatural = addActionListener(this);
+        // btnSqrt = addActionListener(this);
+
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
-        // 7 8 9 +
+        // sin cos tan log ln
         gbc.gridx = 0;
         gbc.gridy = 0;
+        p.add(btnSin, gbc);
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        p.add(btnCos, gbc);
+        gbc.gridx = 2;
+        gbc.gridy = 0;
+        p.add(btnTan, gbc);
+        gbc.gridx = 3;
+        gbc.gridy = 0;
+        p.add(btnLog, gbc);
+        gbc.gridx = 4;
+        gbc.gridy = 0;
+        p.add(btnLn, gbc);
+
+        // ###########################################
+        // x^2 x^y e^x 1/x sqrt
+
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        p.add(btnPow2, gbc);
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        p.add(btnPowy, gbc);
+        gbc.gridx = 2;
+        gbc.gridy = 1;
+        p.add(btnEpowx, gbc);
+        gbc.gridx = 3;
+        gbc.gridy = 1;
+        p.add(btnNatural, gbc);
+        gbc.gridx = 4;
+        gbc.gridy = 1;
+        p.add(btnSqrt, gbc);
+
+        // ###########################################
+        // 7 8 9 DEL C
+
+
+        gbc.gridx = 0;
+        gbc.gridy = 2;
         p.add(btn7, gbc);
 
         gbc.gridx = 1;
-        gbc.gridy = 0;
+        gbc.gridy = 2;
         p.add(btn8, gbc);
 
         gbc.gridx = 2;
-        gbc.gridy = 0;
+        gbc.gridy = 2;
         p.add(btn9, gbc);
 
         gbc.gridx = 3;
-        gbc.gridy = 0;
-        p.add(btnPlus, gbc);
+        gbc.gridy = 2;
+        p.add(btnDel, gbc);
 
-        // 4 5 6 -
+        gbc.gridx = 4;
+        gbc.gridy = 2;
+        p.add(btnClear, gbc);
+
+        // ###########################################
+        // 4 5 6 * /
 
         gbc.gridx = 0;
-        gbc.gridy = 1;
+        gbc.gridy = 3;
         p.add(btn4, gbc);
 
         gbc.gridx = 1;
-        gbc.gridy = 1;
+        gbc.gridy = 3;
         p.add(btn5, gbc);
 
         gbc.gridx = 2;
-        gbc.gridy = 1;
+        gbc.gridy = 3;
         p.add(btn6, gbc);
 
         gbc.gridx = 3;
-        gbc.gridy = 1;
-        p.add(btnMinus, gbc);
+        gbc.gridy = 3;
+        p.add(btnMultiply, gbc);
 
+        gbc.gridx = 4;
+        gbc.gridy = 3;
+        p.add(btnDivide, gbc);
+
+        // ###########################################
         // 1 2 3 *
         gbc.gridx = 0;
-        gbc.gridy = 2;
+        gbc.gridy = 4;
         p.add(btn1, gbc);
 
         gbc.gridx = 1;
-        gbc.gridy = 2;
+        gbc.gridy = 4;
         p.add(btn2, gbc);
 
         gbc.gridx = 2;
-        gbc.gridy = 2;
+        gbc.gridy = 4;
         p.add(btn3, gbc);
 
         gbc.gridx = 3;
-        gbc.gridy = 2;
-        p.add(btnMultiply, gbc);
+        gbc.gridy = 4;
+        p.add(btnPlus, gbc);
 
+        gbc.gridx = 4;
+        gbc.gridy = 4;
+        p.add(btnMinus, gbc);
+
+        // ###########################################
         // C 0 = /
-        gbc.gridx = 0;
-        gbc.gridy = 3;
-        p.add(btnClear, gbc);
 
-        gbc.gridx = 1;
-        gbc.gridy = 3;
+        gbc.gridx = 0;
+        gbc.gridy = 5;
         p.add(btn0, gbc);
 
+        gbc.gridx = 1;
+        gbc.gridy = 5;
+        p.add(btnDot, gbc);
+
         gbc.gridx = 2;
-        gbc.gridy = 3;
-        p.add(btnEquals, gbc);
+        gbc.gridy = 5;
+        p.add(btnPie, gbc);
 
         gbc.gridx = 3;
-        gbc.gridy = 3;
-        p.add(btnDivide, gbc);
+        gbc.gridy = 5;
+        p.add(btnE, gbc);
+
+        gbc.gridx = 4;
+        gbc.gridy = 5;
+        p.add(btnEquals, gbc);
+
+        // ###########################################
 
         setVisible(true);
         setSize(400, 400);
