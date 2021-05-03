@@ -17,7 +17,7 @@ class SwingCalculator extends JFrame implements ActionListener {
         GridBagConstraints gbc = new GridBagConstraints();
 
         res.setEditable(false);
-        res.setHorizontalAlignment(SwingConstants.RIGHT);
+        res.setHorizontalAlignment(SwingConstants.LEFT);
         res.setPreferredSize(new Dimension(400, 30));
         add(res, BorderLayout.NORTH);
         add(p, BorderLayout.CENTER);
@@ -73,16 +73,16 @@ class SwingCalculator extends JFrame implements ActionListener {
         btnClear.addActionListener(this);
         btnEquals.addActionListener(this);
 
-        // btnSin = addActionListener(this);
-        // btnCos = addActionListener(this);
-        // btnTan = addActionListener(this);
-        // btnLog = addActionListener(this);
-        // btnLn = addActionListener(this);
-        // btnPow2 = addActionListener(this);
-        // btnPowy = addActionListener(this);
-        // btnEpowx = addActionListener(this);
-        // btnNatural = addActionListener(this);
-        // btnSqrt = addActionListener(this);
+        btnSin.addActionListener(this);
+        btnCos.addActionListener(this);
+        btnTan.addActionListener(this);
+        btnLog.addActionListener(this);
+        btnLn.addActionListener(this);
+        btnPow2.addActionListener(this);
+        btnPowy.addActionListener(this);
+        btnEpowx.addActionListener(this);
+        btnNatural.addActionListener(this);
+        btnSqrt.addActionListener(this);
 
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
@@ -124,7 +124,6 @@ class SwingCalculator extends JFrame implements ActionListener {
 
         // ###########################################
         // 7 8 9 DEL C
-
 
         gbc.gridx = 0;
         gbc.gridy = 2;
@@ -222,11 +221,15 @@ class SwingCalculator extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent ae) {
         String command = ae.getActionCommand();
+        String total, result;
         if (command.charAt(0) == 'C') {
             res.setText("");
         } else if (command.charAt(0) == '=') {
-            res.setText(evaluate(res.getText()));
-            System.out.println(evaluate(res.getText()));
+            total = (evaluate(res.getText()));
+            result = total.split("=")[1];
+            System.out.println(result);
+            res.setText("");
+            res.setText(result);
         } else {
             res.setText(res.getText() + command);
         }
