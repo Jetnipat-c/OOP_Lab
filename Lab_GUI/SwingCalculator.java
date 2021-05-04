@@ -251,7 +251,7 @@ class SwingCalculator extends JFrame implements ActionListener {
                 }
             }
 
-            if (arr[i] == '+' || arr[i] == '-' || arr[i] == '/' || arr[i] == '*') {
+            if (arr[i] == '+' || arr[i] == '-' || arr[i] == '/' || arr[i] == '*' || arr[i] == 's') {
                 operator += arr[i];
             }
         }
@@ -262,8 +262,10 @@ class SwingCalculator extends JFrame implements ActionListener {
             result = (Double.parseDouble(operand1) - Double.parseDouble(operand2));
         else if (operator.equals("/"))
             result = (Double.parseDouble(operand1) / Double.parseDouble(operand2));
-        else
+        else if (operator.equals("*"))
             result = (Double.parseDouble(operand1) * Double.parseDouble(operand2));
+        else if (operator.equals("sin"))
+            result = Math.asin(Double.parseDouble(operand1)); 
         return operand1 + operator + operand2 + "=" + result;
     }
 
